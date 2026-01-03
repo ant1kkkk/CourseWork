@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hwAy4l1VBCQ=",
+  "success": true,
+  "projectFilePath": "/Users/tunisroman/Documents/CourseWork/KeyCloak/KeyCloak.csproj",
+  "expectedPackageFiles": [
+    "/Users/tunisroman/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0/microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "/Users/tunisroman/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
