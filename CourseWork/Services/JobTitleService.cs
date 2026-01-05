@@ -14,30 +14,43 @@ namespace CourseWork.Services
             const string query = $@"INSERT INTO jobtitles(sJobTitleName, mSalary)
                                         VALUES(@JobTitleName, @Salary)";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new
-                {
-                    JobTitleName = request.JobTitleName,
-                    Salary = request.Salary
-                });
+                connection.Execute(
+                    query,
+                    new
+                    {
+                        JobTitleName = request.JobTitleName,
+                        Salary = request.Salary
+                    });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Create JobTitle Error");
+            }
         }
 
         public void Delete(int idJobTitle, WorkersDbContext context)
         {
             const string query = $@"DELETE FROM jobtitles
                                         WHERE idJobTitle = @IdJobTitle";
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            using NpgsqlConnection connection = context.Create();
-
-            connection.Execute(
-                query,
-                new { IdJobTitle = idJobTitle });
+                connection.Execute(
+                    query,
+                    new { IdJobTitle = idJobTitle });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Delete JobTitle Error");
+            }
         }
 
-        public Jobtitle Get(int idJobTitle, WorkersDbContext context)
+        public Jobtitle? Get(int idJobTitle, WorkersDbContext context)
         {
             const string query = $@"SELECT      idJobTitle        AS {nameof(Jobtitle.IdJobTitle)}
                                                 ,sJobTitleName    AS {nameof(Jobtitle.JobTitleName)}
@@ -45,13 +58,22 @@ namespace CourseWork.Services
                                     FROM jobtitles
                                     WHERE idJobtitle = @IdJobTitle";
 
-            using NpgsqlConnection connection = context.Create();
+            Jobtitle? jobTitle = null;
 
-            var jobTitle = connection.QuerySingleOrDefault<Jobtitle>(
-                query,
-                new { IdJobTitle = idJobTitle });
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            return jobTitle!;
+                jobTitle = connection.QuerySingleOrDefault<Jobtitle>(
+                    query,
+                    new { IdJobTitle = idJobTitle });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Get JobTitle Error");
+            }
+
+            return jobTitle;
         }
 
         public List<Jobtitle> GetJobTitles(WorkersDbContext context)
@@ -61,9 +83,17 @@ namespace CourseWork.Services
                                                 ,mSalary          AS {nameof(Jobtitle.Salary)}
                                     FROM jobtitles";
 
-            using NpgsqlConnection connection = context.Create();
+            IEnumerable<Jobtitle>? jobTitles = null;
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            var jobTitles = connection.Query<Jobtitle>(query);
+                jobTitles = connection.Query<Jobtitle>(query);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Get JobTitles Error");
+            }
 
             return jobTitles.ToList();
         }
@@ -75,16 +105,23 @@ namespace CourseWork.Services
                                             ,mSalary = @Salary
                                     WHERE idJobTitle = @IdJobTitle";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new
-                {
-                    IdJobtitle = idJobTitle,
-                    JobTitleName = request.JobTitleName,
-                    Salary = request.Salary
-                });
+                connection.Execute(
+                    query,
+                    new
+                    {
+                        IdJobtitle = idJobTitle,
+                        JobTitleName = request.JobTitleName,
+                        Salary = request.Salary
+                    });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Update JobTitle Error");
+            }
         }
     }
 }

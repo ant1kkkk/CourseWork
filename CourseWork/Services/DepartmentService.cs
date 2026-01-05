@@ -14,17 +14,24 @@ namespace CourseWork.Services
             const string query = $@"INSERT INTO departments(sdepartmentname, ddepartmentcreationdate, dheadappointmentdate, idhead)
                                         VALUES(@DepartmentName, @DepartmentCreationDate, @HeadAppointmentDate, @IdHead)";
 
-            using NpgsqlConnection connection = context.Create();
-
-            connection.Execute(
-                query,
-                new
-                {
-                    DepartmentName = request.DepartmentName,
-                    DepartmentCreationDate = request.DepartmentCreationDate,
-                    HeadAppointmentDate = request.HeadAppointmentDate,
-                    IdHead = request.IdHead
-                });
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
+                
+                connection.Execute(
+                    query,
+                    new
+                    {
+                        DepartmentName = request.DepartmentName,
+                        DepartmentCreationDate = request.DepartmentCreationDate,
+                        HeadAppointmentDate = request.HeadAppointmentDate,
+                        IdHead = request.IdHead
+                    });
+            }
+            catch (PostgresException ex)
+            {
+                Console.WriteLine("Server Error");
+            }
         }
 
         public void Delete(int idDepartment, WorkersDbContext context)
@@ -32,14 +39,21 @@ namespace CourseWork.Services
             const string query = $@"DELETE FROM departments
                                         WHERE idDepartment = @IdDepartment";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new { IdDepartment = idDepartment });
+                connection.Execute(
+                    query,
+                    new { IdDepartment = idDepartment });
+            }
+            catch (PostgresException ex)
+            {
+                Console.WriteLine("Server Error");
+            }
         }
 
-        public Department Get(int idDepartment, WorkersDbContext context)
+        public Department? Get(int idDepartment, WorkersDbContext context)
         {
             const string query = $@"SELECT      idDepartment                    AS {nameof(Department.IdDepartment)}
                                                 ,sDepartmentName                AS {nameof(Department.DepartmentName)}
@@ -49,13 +63,24 @@ namespace CourseWork.Services
                                     FROM departments
                                     WHERE idDepartment = @IdDepartment";
 
-            using NpgsqlConnection connection = context.Create();
+            Department? department = null;
+            
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            var department = connection.QuerySingleOrDefault<Department>(
-                query,
-                new { IdDepartment = idDepartment });
+                department = connection.QuerySingleOrDefault<Department>(
+                    query,
+                    new { IdDepartment = idDepartment });
 
-            return department!;
+                return department!;
+            }
+            catch (PostgresException ex)
+            {
+                Console.WriteLine("Server Error");
+            }
+
+            return department;
         }
 
         public List<Department> GetDepartments(WorkersDbContext context)
@@ -67,9 +92,18 @@ namespace CourseWork.Services
                                                 ,idHead                         AS {nameof(Department.IdHead)}
                                     FROM departments";
 
-            using NpgsqlConnection connection = context.Create();
+            IEnumerable<Department>? departments = null;
 
-            var departments = connection.Query<Department>(query);
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
+
+                departments = connection.Query<Department>(query);
+            }
+            catch (PostgresException ex)
+            {
+                Console.WriteLine("Server Error");
+            }
 
             return departments.ToList();
         }
@@ -83,18 +117,25 @@ namespace CourseWork.Services
                                             ,idHead = @IdHead
                                     WHERE idDepartment = @IdDepartment";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new
-                {
-                    IdDepartment = idDepartment,
-                    DepartmentName = request.DepartmentName,
-                    DepartmentCreationDate = request.DepartmentCreationDate,
-                    HeadAppointmentDate = request.HeadAppointmentDate,
-                    IdHead = request.IdHead
-                });
+                connection.Execute(
+                    query,
+                    new
+                    {
+                        IdDepartment = idDepartment,
+                        DepartmentName = request.DepartmentName,
+                        DepartmentCreationDate = request.DepartmentCreationDate,
+                        HeadAppointmentDate = request.HeadAppointmentDate,
+                        IdHead = request.IdHead
+                    });
+            }
+            catch (PostgresException ex)
+            {
+                Console.WriteLine("Server Error");
+            }
         }
     }
 }

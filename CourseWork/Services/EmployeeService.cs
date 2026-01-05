@@ -14,19 +14,27 @@ namespace CourseWork.Services
             const string query = $@"INSERT INTO employees(sFirstName, sLastName, iAge, idJobTitle, idDepartment, dEmploymentDate)
                                         VALUES(@FirstName, @LastName, @Age, @IdJobTitle, @IdDepartment, @EmploymentDate)";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new
-                {
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
-                    Age = request.Age,
-                    IdJobTitle = request.IdJobTitle,
-                    IdDepartment = request.IdDepartment,
-                    EmploymentDate = request.EmploymentDate
-                });
+                connection.Execute(
+                    query,
+                    new
+                    {
+                        FirstName = request.FirstName,
+                        LastName = request.LastName,
+                        Age = request.Age,
+                        IdJobTitle = request.IdJobTitle,
+                        IdDepartment = request.IdDepartment,
+                        EmploymentDate = request.EmploymentDate
+                    });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Server Error");
+            }
+            
         }
 
         public void Delete(int id, WorkersDbContext context)
@@ -34,14 +42,21 @@ namespace CourseWork.Services
             const string query = $@"DELETE FROM employees
                                         WHERE id = @Id";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new { Id = id });
+                connection.Execute(
+                    query,
+                    new { Id = id });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Server Error");
+            }
         }
 
-        public Employee Get(int id, WorkersDbContext context)
+        public Employee? Get(int id, WorkersDbContext context)
         {
             const string query = $@"SELECT      id                  AS {nameof(Employee.Id)}
                                                 ,sFirstName         AS {nameof(Employee.FirstName)}
@@ -53,13 +68,22 @@ namespace CourseWork.Services
                                     FROM employees
                                     WHERE id = @Id";
 
-            using NpgsqlConnection connection = context.Create();
+            Employee? employee = null;
 
-            var employee = connection.QuerySingleOrDefault<Employee>(
-                query,
-                new { Id = id });
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            return employee!;
+                employee = connection.QuerySingleOrDefault<Employee>(
+                    query,
+                    new { Id = id });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Server Error");
+            }
+
+            return employee;
         }
 
         public List<Employee> GetEmployees(WorkersDbContext context)
@@ -73,9 +97,18 @@ namespace CourseWork.Services
                                                 ,dEmploymentDate    AS {nameof(Employee.EmploymentDate)}
                                     FROM employees";
 
-            using NpgsqlConnection connection = context.Create();
+            IEnumerable<Employee>? employees = null;
 
-            var employees = connection.Query<Employee>(query);
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
+
+                employees = connection.Query<Employee>(query);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Server Error");
+            }
 
             return employees.ToList();
         }
@@ -91,34 +124,48 @@ namespace CourseWork.Services
                                             ,dEmploymentDate = @EmploymentDate
                                     WHERE id = @Id";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new
-                {
-                    Id = id,
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
-                    Age = request.Age,
-                    IdJobTitle = request.IdJobTitle,
-                    IdDepartment = request.IdDepartment,
-                    EmploymentDate = request.EmploymentDate
-                });
+                connection.Execute(
+                    query,
+                    new
+                    {
+                        Id = id,
+                        FirstName = request.FirstName,
+                        LastName = request.LastName,
+                        Age = request.Age,
+                        IdJobTitle = request.IdJobTitle,
+                        IdDepartment = request.IdDepartment,
+                        EmploymentDate = request.EmploymentDate
+                    });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Server Error");
+            }
         }
 
         public void MoveEmployeeToArchive(int id, WorkersDbContext context)
         {
             const string query = $@"CALL sp_move_employee_into_archive(@id)";
 
-            using NpgsqlConnection connection = context.Create();
+            try
+            {
+                using NpgsqlConnection connection = context.Create();
 
-            connection.Execute(
-                query,
-                new
-                {
-                    id = id
-                }); 
+                connection.Execute(
+                    query,
+                    new
+                    {
+                        id = id
+                    }); 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Server Error");
+            }
         }
     }
 }
