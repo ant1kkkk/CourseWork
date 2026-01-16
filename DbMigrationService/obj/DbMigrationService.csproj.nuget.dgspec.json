@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj": {}
+    "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj": {}
   },
   "projects": {
-    "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj": {
+    "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+        "projectUniqueName": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
         "projectName": "DbMigrationService",
-        "projectPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+        "projectPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
         "packagesPath": "/Users/tunisroman/.nuget/packages/",
-        "outputPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/obj/",
+        "outputPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/tunisroman/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ISIM2uU6gnQ=",
+  "dgSpecHash": "Ty8h1RFwu2g=",
   "success": true,
-  "projectFilePath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+  "projectFilePath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
   "expectedPackageFiles": [
     "/Users/tunisroman/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/tunisroman/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",
@@ -45,9 +45,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'Azure.Identity' 1.10.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
-      "projectPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "projectPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "filePath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "libraryId": "Azure.Identity",
       "targetGraphs": [
         "net10.0"
@@ -57,9 +57,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'Azure.Identity' 1.10.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wvxc-855f-jvrv",
-      "projectPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "projectPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "filePath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "libraryId": "Azure.Identity",
       "targetGraphs": [
         "net10.0"
@@ -69,9 +69,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
-      "projectPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "projectPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "filePath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "libraryId": "Microsoft.Identity.Client",
       "targetGraphs": [
         "net10.0"
@@ -81,9 +81,9 @@
       "code": "NU1901",
       "level": "Warning",
       "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known low severity vulnerability, https://github.com/advisories/GHSA-x674-v45j-fwxw",
-      "projectPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "projectPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "filePath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "libraryId": "Microsoft.Identity.Client",
       "targetGraphs": [
         "net10.0"
@@ -93,9 +93,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'Microsoft.IdentityModel.JsonWebTokens' 6.24.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
-      "projectPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "projectPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "filePath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "libraryId": "Microsoft.IdentityModel.JsonWebTokens",
       "targetGraphs": [
         "net10.0"
@@ -105,9 +105,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.24.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
-      "projectPath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "projectPath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/tunisroman/Documents/CourseWork/DbMigrationService/DbMigrationService.csproj",
+      "filePath": "/Users/tunisroman/RiderProjects/CourseWork/DbMigrationService/DbMigrationService.csproj",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
         "net10.0"
