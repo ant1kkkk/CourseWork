@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KeyCloak")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+109b980868a59babf55bf6c2d107e0b042f6bb68")]
 [assembly: System.Reflection.AssemblyProductAttribute("KeyCloak")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KeyCloak")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

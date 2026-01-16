@@ -1,4 +1,4 @@
 <Solution>
   <Project Path="CourseWork/CourseWork.csproj" />
-  <Project Path="KeyCloak/KeyCloak.csproj" />
+  <Project Path="DbMigrationService/DbMigrationService.csproj" />
 </Solution>

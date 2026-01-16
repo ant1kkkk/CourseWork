@@ -33,3 +33,4 @@
 /Users/tunisroman/Documents/CourseWork/CourseWork/obj/Debug/net10.0/ref/CourseWork.dll
 /Users/tunisroman/Documents/CourseWork/CourseWork/bin/Debug/net10.0/Dapper.dll
 /Users/tunisroman/Documents/CourseWork/CourseWork/bin/Debug/net10.0/Npgsql.dll
+/Users/tunisroman/Documents/CourseWork/CourseWork/obj/Debug/net10.0/CourseWork.sourcelink.json
