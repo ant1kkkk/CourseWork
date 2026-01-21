@@ -8,3 +8,8 @@ idDepartment int NOT NULL REFERENCES Departments (idDepartment) on delete restri
 dEmploymentDate date not null);
 
 alter table departments add column idHead int null references employees (id) on delete cascade;
+
+insert into employees (sFirstName, sLastName, iAge, idJobTitle, idDepartment, dEmploymentDate)
+values ('Павел', 'Клименков', 25, 
+        (SELECT idJobTitle FROM JobTitles FETCH FIRST 1 ROWS ONLY), 
+        (SELECT idDepartment FROM Departments FETCH FIRST 1 ROWS ONLY), '2025-10-10');

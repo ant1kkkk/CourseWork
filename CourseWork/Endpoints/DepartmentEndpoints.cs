@@ -10,7 +10,12 @@ namespace CourseWork.Endpoints
 
         public static void MapDepartmentEndpoints(this IEndpointRouteBuilder app)
         {
-            app.MapGet("departments", async (WorkersDbContext context) => Results.Ok(_departmentService.GetDepartments(context)));
+            app.MapGet("departments", async (WorkersDbContext context) => 
+                Results.Ok(_departmentService.GetDepartments(context)))
+                .RequireAuthorization(auth =>
+                {
+                    auth.RequireRole("User", "Admin");
+                });
 
             app.MapGet("departments/{id:int}", async (int id, WorkersDbContext context) =>
             {
@@ -18,13 +23,21 @@ namespace CourseWork.Endpoints
 
                 return employee is not null ? Results.Ok(employee) : Results.NotFound();
             })
-            .WithName("GetDepartmentById");
+            .WithName("GetDepartmentById")
+            .RequireAuthorization(auth =>
+            {
+                auth.RequireRole("User", "Admin");
+            });
 
             app.MapPost("departments", async (WorkersDbContext context, AddDepartmentRequest request) =>
             {
                 _departmentService.Create(context, request);
 
                 return Results.Created();
+            })
+            .RequireAuthorization(auth =>
+            {
+                auth.RequireRole("Admin");
             });
 
             app.MapPut("departments/{id:int}", async (int id, WorkersDbContext context, UpdateDepartmentRequest request) =>
@@ -32,6 +45,10 @@ namespace CourseWork.Endpoints
                 _departmentService.Update(id, context, request);
 
                 return Results.NoContent();
+            })
+            .RequireAuthorization(auth =>
+            {
+                auth.RequireRole("Admin");
             });
 
             app.MapDelete("departments/{id:int}", async (int id, WorkersDbContext context) =>
@@ -39,6 +56,10 @@ namespace CourseWork.Endpoints
                 _departmentService.Delete(id, context);
 
                 return Results.NoContent();
+            })
+            .RequireAuthorization(auth =>
+            {
+                auth.RequireRole("Admin");
             });
         }
     }
